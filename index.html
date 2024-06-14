@@ -7,33 +7,68 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="display">
-            <input type="text" id="display" disabled>
+    <header>
+        <h1>Advanced Calculator</h1>
+    </header>
+    <div class="container">
+        <div class="calculator">
+            <div class="display">
+                <input type="text" id="display" class="input-mode" disabled>
+            </div>
+            <div class="buttons">
+                <button onclick="clearDisplay()">
+                    <img src="icons/clear.svg" alt="Clear">
+                </button>
+                <button onclick="deleteLast()">
+                    <img src="icons/delete.svg" alt="Delete">
+                </button>
+                <button onclick="appendOperator('/')">÷</button>
+                <button onclick="appendOperator('*')">×</button>
+                <button onclick="appendNumber('7')">7</button>
+                <button onclick="appendNumber('8')">8</button>
+                <button onclick="appendNumber('9')">9</button>
+                <button onclick="appendOperator('-')">−</button>
+                <button onclick="appendNumber('4')">4</button>
+                <button onclick="appendNumber('5')">5</button>
+                <button onclick="appendNumber('6')">6</button>
+                <button onclick="appendOperator('+')">+</button>
+                <button onclick="appendNumber('1')">1</button>
+                <button onclick="appendNumber('2')">2</button>
+                <button onclick="appendNumber('3')">3</button>
+                <button class="equal" onclick="calculate()">=</button>
+                <button onclick="appendNumber('0')">0</button>
+                <button onclick="appendDot()">.</button>
+            </div>
         </div>
-        <div class="buttons">
-            <button onclick="clearDisplay()">
-                <img src="icons/clear.svg" alt="Clear">
-            </button>
-            <button onclick="deleteLast()">
-                <img src="icons/delete.svg" alt="Delete">
-            </button>
-            <button onclick="appendOperator('/')">÷</button>
-            <button onclick="appendOperator('*')">×</button>
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button onclick="appendOperator('-')">−</button>
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button onclick="appendOperator('+')">+</button>
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button class="equal" onclick="calculate()">=</button>
-            <button onclick="appendNumber('0')">0</button>
-            <button onclick="appendDot()">.</button>
+
+        <div class="extra-features">
+            <div class="temperature-converter">
+                <h2>Temperature Converter</h2>
+                <input type="number" id="temp-input" placeholder="Enter temperature">
+                <select id="temp-unit">
+                    <option value="C">Celsius</option>
+                    <option value="F">Fahrenheit</option>
+                </select>
+                <button onclick="convertTemperature()">Convert</button>
+                <p id="temp-output"></p>
+            </div>
+
+            <div class="quadratic-solver">
+                <h2>Quadratic Equation Solver</h2>
+                <input type="number" id="a" placeholder="a">
+                <input type="number" id="b" placeholder="b">
+                <input type="number" id="c" placeholder="c">
+                <button onclick="solveQuadratic()">Solve</button>
+                <p id="quadratic-output"></p>
+            </div>
+
+            <div class="matrix-operations">
+                <h2>Matrix Operations</h2>
+                <textarea id="matrix1" placeholder="Matrix 1 (comma-separated values)"></textarea>
+                <textarea id="matrix2" placeholder="Matrix 2 (comma-separated values)"></textarea>
+                <button onclick="addMatrices()">Add Matrices</button>
+                <p id="matrix-output"></p>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
